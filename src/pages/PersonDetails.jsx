@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import user from "../assets/user.jpg";
 import { useSearch } from "../context/SearchContext";
-
+import { useNavigate } from "react-router-dom";
 
 export default function PersonDetail() {
+  const navigate = useNavigate()
 
   const { trips } = useSearch()
 
@@ -19,30 +20,38 @@ export default function PersonDetail() {
 
 
   return (
-    <div className="container my-5 text-center d-flex justify-content-center">
-      <div className="card p-5">
-        <div className="card-top">
-          <img src={user}></img> {/*IMMAGE DELLA PERSONA*/}
-        </div>
-        <div className="card-bottom">
-          <div className="name">
-            <h3 className="mt-4">
-              {traveler.nome} {traveler.cognome}
-            </h3>
+    <>
+      <div className="container m-2">
+
+      </div>
+      <div className="container my-5 text-center d-flex justify-content-center">
+        <div className="card p-5">
+          <div className="card-top">
+            <img src={user}></img> {/*IMMAGE DELLA PERSONA*/}
           </div>
-          {/*TENDENZIALMENTE QUESTO DA FARE IN STRONG*/}
-          <p>
-            <strong>Codice fiscale:</strong>
-            {traveler.codiceFiscale}
-          </p>
-          <p>
-            <strong>Email:</strong> {traveler.email}
-          </p>
-          <p>
-            <strong>Numero di telefono:</strong>+39 {traveler.telefono}
-          </p>
+          <div className="card-bottom">
+            <div className="name">
+              <h3 className="mt-4">
+                {traveler.nome} {traveler.cognome}
+              </h3>
+            </div>
+            {/*TENDENZIALMENTE QUESTO DA FARE IN STRONG*/}
+            <p>
+              <strong>Codice fiscale:</strong>
+              {traveler.codiceFiscale}
+            </p>
+            <p>
+              <strong>Email:</strong> {traveler.email}
+            </p>
+            <p>
+              <strong>Numero di telefono:</strong>+39 {traveler.telefono}
+            </p>
+            <button type="button" className="eye btn btn-outline-primary" onClick={() => navigate(-1)}>
+              <i className="bi bi-arrow-left"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

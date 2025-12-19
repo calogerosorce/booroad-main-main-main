@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSearch } from "../context/SearchContext";
+import { useNavigate } from "react-router-dom";
 
-export default function NewUserForm({}) {
-  const { trips, setTrips } = useSearch();
+export default function NewUserForm({ }) {
+  const { trips } = useSearch();
+  const navigate = useNavigate()
 
   const { id } = useParams();
 
@@ -41,6 +43,9 @@ export default function NewUserForm({}) {
 
   return (
     <div className="container my-5">
+      <button type="button" className="eye btn btn-outline-dark mb-3" onClick={() => navigate(-1)}>
+        <i className="bi bi-arrow-left"></i>
+      </button>
       <h3 className="mb-3">Aggiungi un nuovo viaggiatore</h3>
       <form onSubmit={handleFormSubmit}>
         <div className="mb-3">

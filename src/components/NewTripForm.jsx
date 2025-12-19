@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useSearch } from "../context/SearchContext";
+import { useNavigate } from "react-router-dom";
 
 export default function NewTripForm() {
   //Create a varible to store form data
   const [destination, setDestination] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const navigate = useNavigate()
 
   const { addTrip } = useSearch();
 
@@ -29,6 +31,9 @@ export default function NewTripForm() {
 
   return (
     <>
+      <button type="button" className="eye btn btn-outline-dark mb-3" onClick={() => navigate(-1)}>
+        <i className="bi bi-arrow-left"></i>
+      </button>
       <h3 className="mb-3">Aggiungi un nuovo viaggio</h3>
       <form onSubmit={handleFormSubmit}>
         <div className="mb-3">
