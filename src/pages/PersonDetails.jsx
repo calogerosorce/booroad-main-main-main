@@ -22,11 +22,11 @@ export default function PersonDetail() {
           <img src={user}></img> {/*IMMAGE DELLA PERSONA*/}
         </div>
         <div className="card-bottom">
-          <p className="name">
+          <div className="name">
             <h3 className="mt-4">
               {traveler.nome} {traveler.cognome}
             </h3>
-          </p>
+          </div>
           {/*TENDENZIALMENTE QUESTO DA FARE IN STRONG*/}
           <p>
             <strong>Codice fiscale:</strong>

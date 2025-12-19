@@ -36,8 +36,13 @@ export default function DettaglioViaggio() {
       (viaggiatore) => viaggiatore.codiceFiscale !== codiceFiscale
     );
 
-    setTrip([{ ...trip[0], viaggiatori: removeTraveler }]);
+    setTrips(
+      trips.map((trip) =>
+        trip.id == id ? { ...trip, viaggiatori: removeTraveler } : trip
+      )
+    );
   }
+
 
   useEffect(() => { }, [trips])
 
