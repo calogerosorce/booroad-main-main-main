@@ -47,7 +47,6 @@ export default function ListaViaggi() {
 
   useEffect(() => {
     getFilteredTrips();
-    console.log(viaggiFiltrati);
   }, [trips, searchLower]);
 
   return (

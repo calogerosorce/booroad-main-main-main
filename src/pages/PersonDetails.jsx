@@ -1,19 +1,22 @@
 import { useParams } from "react-router-dom";
 import user from "../assets/user.jpg";
-import viaggi from "../data/viaggi";
+import { useSearch } from "../context/SearchContext";
+
 
 export default function PersonDetail() {
+
+  const { trips } = useSearch()
+
   const { id, travelerID } = useParams();
 
-  const filterTrip = viaggi.filter((items) => items.id == id);
+  const filterTrip = trips.find((items) => items.id == id);
 
-  const filterUser = filterTrip[0].viaggiatori.find(
+  const filterUser = filterTrip.viaggiatori.find(
     (items) => items.id == travelerID
   );
 
   const traveler = filterUser;
 
-  //console.log(filterUser);
 
   return (
     <div className="container my-5 text-center d-flex justify-content-center">
