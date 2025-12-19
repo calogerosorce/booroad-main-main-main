@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="text-center bg-body-tertiary">
       <div className="pt-4">
-        <section className="mb-4">
+        {/*      <section className="mb-4">
           <a
             data-mdb-ripple-init
             className="btn btn-link btn-lg text-body m-1"
@@ -58,7 +58,7 @@ export default function Footer() {
             <i className="bi bi-github"></i>
           </a>
         </section>
-
+ */}
         <div
           className="text-center p-3"
           style={{ backgroundColor: "rgba(0,0,0,0.05)" }}
